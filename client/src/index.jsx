@@ -16,21 +16,13 @@ class App extends React.Component{
   }
 
   handleSubmit(searchTerm){
-    console.log('Submit handling invoked, searching: ', searchTerm);
-  //   axios.post('/items', {body: searchTerm})
-  //   .then(function (response) { console.log(response);
-  //   })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
-
     const searchTwitter = async () => {
       try {
         console.log('Sending POST to server searching: ', searchTerm);
         const response = await axios.post('/items', { searchTerm });
         const data = response.data;
-        console.log("returning from API call");
-        console.log(data);
+        // console.log("returning from API call");
+        // console.log(data);
       } catch (error) {
         console.error(error);
       }

@@ -9,18 +9,18 @@ module.exports.searchTweets = (twitterSearchTerm) => {
     twitterApiUrl,
     {
       params: {
-        q: twitterSearchTerm//,
-        // result_type: 'recent',
-        // count: 10
+        q: twitterSearchTerm,
+        result_type: 'recent',
+        count: 10
       },
       headers: {
         Authorization: `Bearer ${twitterToken}`,
       },
     },
   )
-//    .then(res => res.data.statuses.map(status => status.text))
-   .then(res => console.log(res.data))
-    .then((texts) => {
+    .then(res => res.data.statuses.map(status => status.text))
+    .then(texts => console.log(texts))
+    .then(texts => {
       const tweets = [];
       texts.forEach(text => tweets.push(text));
       console.log('TWEETS IN ARRAY');

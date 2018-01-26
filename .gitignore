@@ -1,3 +1,9 @@
+# Dependency data
 /node_modules
 .env
+
+# Planning document
 planningdoc.txt
+
+# Twitter sample data
+sampledata.js
