@@ -19,6 +19,7 @@ var path = require('path');
         {
           test: /\.jsx?/,
           include: SRC_DIR,
+          exclude: [/\.js$/, /\.html$/, /\.json$/, /\.ejs$/],
           loader: 'babel-loader',
           query: {
             presets: ['react', 'babel-preset-env']
