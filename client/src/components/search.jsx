@@ -7,9 +7,6 @@ class Search extends React.Component {
     this.state = {
       searchTermEntry: ''
     }
-
-    this.handleSearchTermEntry = this.handleSearchTermEntry.bind(this);
-    this.handleSubmit = props.handleSubmit.bind(this);
   }
 
   handleSearchTermEntry(event) {
@@ -23,8 +20,8 @@ class Search extends React.Component {
     return (
       <div className='header'>
         <div>Enter a search term into the box:</div>
-        <input type="text" value={this.state.searchTermEntry} onChange={this.handleSearchTermEntry.bind(this)}></input>
-        <button onClick={this.handleSubmit.bind(this, this.state.searchTermEntry)} >Submit!</button>
+        <input type="text" value={this.state.searchTermEntry} onChange={event => this.handleSearchTermEntry(event)}></input>
+        <button onClick={() => this.props.handleSubmit(this.state.searchTermEntry)} >Submit!</button>
       </div>
     );
   }

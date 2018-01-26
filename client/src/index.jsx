@@ -15,31 +15,43 @@ class App extends React.Component{
     }
   }
 
-  componentDidMount(){
-    console.log('COMPONENT DID MOUNT IS RUNNING');
-    const url = "/items";
-    const loadDefaultPage = async url => {
+  handleSubmit(searchTerm){
+    console.log('Submit handling invoked, searching: ', searchTerm);
+  //   axios.post('/items', {body: searchTerm})
+  //   .then(function (response) { console.log(response);
+  //   })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });
+
+    const searchTwitter = async () => {
       try {
-        const response = await axios.get(url);
+        console.log('Sending POST to server searching: ', searchTerm);
+        const response = await axios.post('/items', { searchTerm });
         const data = response.data;
+        console.log("returning from API call");
         console.log(data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
+
+    searchTwitter();
   }
 
-  handleSubmit(){
-    console.log('Submit handling invoked');
-    /* Make the call to post the submit */
-  }
 
   render() {
     return (
       <div>
         <div>My Twitter Search</div>
-        <Search class="Search" handleSubmit={this.handleSubmit.bind(this)} searchTerm={this.state.searchTerm}/>
-        <Display class="Display" searchTerm={this.state.searchTerm} tweets={this.state.tweets}/>
+        <Search class="Search"
+          handleSubmit={this.handleSubmit.bind(this)}
+          searchTerm={this.state.searchTerm}
+        />
+        <Display class="Display"
+          searchTerm={this.state.searchTerm}
+          tweets={this.state.tweets}
+        />
       </div>
     )
   }
