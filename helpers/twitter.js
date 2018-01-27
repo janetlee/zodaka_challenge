@@ -19,12 +19,7 @@ module.exports.searchTweets = (twitterSearchTerm) => {
     },
   )
     .then(res => res.data.statuses.map(status => status.text))
-    .then(texts => console.log(texts))
-    .then(texts => {
-      const tweets = [];
-      texts.forEach(text => tweets.push(text));
-      console.log('TWEETS IN ARRAY');
-    })
+    .then(tweets => tweets)
     .catch((err) => {
       console.log(`Error from Twitter API:  ${err}`);
     });

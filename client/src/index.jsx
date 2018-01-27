@@ -1,6 +1,6 @@
 import "babel-polyfill";
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from  'react';
+import ReactDOM from 'react-dom';
 import Search from './components/search.jsx';
 import Display from './components/display.jsx';
 
@@ -18,11 +18,19 @@ class App extends React.Component{
   handleSubmit(searchTerm){
     const searchTwitter = async () => {
       try {
-        console.log('Sending POST to server searching: ', searchTerm);
+        // console.log('Sending POST to server searching: ', searchTerm);
         const response = await axios.post('/items', { searchTerm });
         const data = response.data;
-        // console.log("returning from API call");
-        // console.log(data);
+
+        if (data) {
+          this.setState({
+            searchTerm: searchTerm,
+            tweets: data
+          })
+
+          console.log("After setting state: ", this.state.tweets);
+
+        }
       } catch (error) {
         console.error(error);
       }

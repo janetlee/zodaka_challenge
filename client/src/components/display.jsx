@@ -1,23 +1,33 @@
 const React = require('react');
 const App = require('../index.jsx');
 
-class Display extends React.Component {
+class Display extends React.Component{
   constructor(props) {
     super(props);
-    this.state ={
-      searchTerm: '',
+    this.state = {
       tweets: []
     }
   }
 
-  render(){
-    return (
-      <div>
-        <div>DISPLAY</div>
-      </div>
 
+        // {tweets.forEach(tweet =>
+        //   <TweetEntry handleClick={tweets.handleClick} tweet={tweet} key={tweet.id} />
+        // )}
+          // {this.state.tweets}
+
+  render() {
+      return (
+        <div>
+          <div className="tweetList">
+            {this.state.tweets.forEach(tweet =>
+              <TweetEntry handleClick={tweets.handleClick} tweet={tweet} key={tweet.id} />
+            )}
+          </div>
+          <div>
+            My fake row
+          </div>
+        </div>
     )
-
   }
 }
 
