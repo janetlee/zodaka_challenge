@@ -18,7 +18,9 @@ module.exports.searchTweets = (twitterSearchTerm) => {
       },
     },
   )
-    .then(res => res.data.statuses.map(status => status.text))
+    .then(res => res.data.statuses.map(status => {
+      return {'id': status.id_str, 'text': status.text}
+    }))
     .then(tweets => tweets)
     .catch((err) => {
       console.log(`Error from Twitter API:  ${err}`);

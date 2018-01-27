@@ -4,20 +4,16 @@ import DisplayEntry from './displayEntry.jsx';
 class Display extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {
-      searchTerm: this.props.searchTerm,
-      tweets: this.props.tweets
-    }
   }
 
   render() {
       return (
         <div>
-          <div class="tweet-header"> TWEETS MENTIONING: {this.props.searchTerm}
+          <div className="tweet-header"> TWEETS MENTIONING: {this.props.searchTerm}
           </div>
-          <div class="tweet-list">
+          <div className="tweet-list">
             {this.props.tweets.map(tweet =>
-              <DisplayEntry tweet={tweet} key={this.props.tweets.indexOf(tweet)} />
+              <DisplayEntry tweet={tweet.text} key={tweet.id} />
             )}
           </div>
         </div>

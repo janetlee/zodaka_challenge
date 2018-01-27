@@ -1,10 +1,11 @@
 const babelPolyfill = require('babel-polyfill');
 const React = require('react');
 const ReactDOM = require('react-dom');
+const axios = require('axios');
+
 import Search from './components/search.jsx';
 import Display from './components/display.jsx';
 
-const axios = require('axios');
 
 class App extends React.Component{
   constructor(props) {
@@ -39,12 +40,12 @@ class App extends React.Component{
   render() {
     return (
       <div>
-        <div class='Title'>My Twitter Search</div>
-        <Search class="Search"
+        <div className='Title'>My Twitter Search</div>
+        <Search className="Search"
           handleSubmit={this.handleSubmit.bind(this)}
           searchTerm={this.state.searchTerm}
         />
-        <Display class="Display"
+        <Display className="Display"
           searchTerm={this.state.searchTerm}
           tweets={this.state.tweets}
         />
