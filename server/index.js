@@ -1,8 +1,8 @@
-import {} from 'dotenv/config';
-import express from 'express';
-import twitter from '../helpers/twitter.js';
-import bodyParser from 'body-parser';
-import helmet from 'helmet';
+const {} = require('dotenv/config');
+const express = require('express');
+const twitter = require('../helpers/twitter.js');
+const bodyParser = require('body-parser');
+const helmet = require('helmet');
 
 const app = express();
 
@@ -23,10 +23,9 @@ app.post('/items', async (req, res) => {
    if (!req) {
     res.status(500).send('Bad request');
   } else {
-    // console.log(req.body);
     twitter.searchTweets(req.body);
-
     const tweetArray = await twitter.searchTweets(req.body);
+
     res.json(tweetArray);
     res.status(201);
   }

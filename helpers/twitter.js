@@ -1,4 +1,4 @@
-import {} from 'dotenv/config';
+const {} = require('dotenv/config');
 const axios = require('axios');
 
 const twitterApiUrl = 'https://api.twitter.com/1.1/search/tweets.json';
