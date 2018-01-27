@@ -26,10 +26,6 @@ class App extends React.Component{
             searchTerm: searchTerm,
             tweets: data
           })
-
-          console.log("After setting state: ", this.state.searchTerm);
-          console.log("After setting state: ", this.state.tweets);
-
         }
       } catch (error) {
         console.error(error);
@@ -43,7 +39,7 @@ class App extends React.Component{
   render() {
     return (
       <div>
-        <div>My Twitter Search</div>
+        <div class='Title'>My Twitter Search</div>
         <Search class="Search"
           handleSubmit={this.handleSubmit.bind(this)}
           searchTerm={this.state.searchTerm}

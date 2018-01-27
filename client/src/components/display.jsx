@@ -10,28 +10,15 @@ class Display extends React.Component{
     }
   }
 
-
-        // {tweets.forEach(tweet =>
-        //   <TweetEntry handleClick={tweets.handleClick} tweet={tweet} key={tweet.id} />
-        // )}
-          // {this.state.tweets}
-
   render() {
       return (
         <div>
-          <div> TWEETS MENTIONING: {this.props.searchTerm}
+          <div class="tweet-header"> TWEETS MENTIONING: {this.props.searchTerm}
           </div>
-          <div> {this.state.tweets}
-          </div>
-
-          <div className="tweetList">
+          <div class="tweet-list">
             {this.props.tweets.map(tweet =>
               <DisplayEntry tweet={tweet} key={this.props.tweets.indexOf(tweet)} />
             )}
-          </div>
-
-          <div>
-            My fake row
           </div>
         </div>
     )
