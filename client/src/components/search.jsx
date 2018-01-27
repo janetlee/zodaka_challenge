@@ -1,5 +1,5 @@
-const React = require('react');
-const App = require('../index.jsx');
+import React from 'react';
+import App from '../index.jsx';
 
 class Search extends React.Component {
   constructor(props) {

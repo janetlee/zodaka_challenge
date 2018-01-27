@@ -1,11 +1,9 @@
-const babelPolyfill = require('babel-polyfill');
-const React = require('react');
-const ReactDOM = require('react-dom');
-const axios = require('axios');
-
-import Search from './components/search.jsx';
-import Display from './components/display.jsx';
-
+import babelPolyfill from 'babel-polyfill';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
+import Search from './components/Search.jsx';
+import Display from './components/Display.jsx';
 
 class App extends React.Component{
   constructor(props) {
@@ -14,10 +12,12 @@ class App extends React.Component{
       searchTerm: '',
       tweets: []
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(searchTerm){
-    const searchTwitter = async () => {
+  handleSubmit(searchTerm) {
+    (async () => {
       try {
         const response = await axios.post('/items', { searchTerm });
         const data = response.data;
@@ -31,9 +31,7 @@ class App extends React.Component{
       } catch (error) {
         console.error(error);
       }
-    }
-
-    searchTwitter();
+    })();
   }
 
 
@@ -42,7 +40,7 @@ class App extends React.Component{
       <div>
         <div className='Title'>My Twitter Search</div>
         <Search className="Search"
-          handleSubmit={this.handleSubmit.bind(this)}
+          handleSubmit={this.handleSubmit}
           searchTerm={this.state.searchTerm}
         />
         <Display className="Display"

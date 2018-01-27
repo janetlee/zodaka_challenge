@@ -1,5 +1,5 @@
-const React = require('react');
-import DisplayEntry from './displayEntry.jsx';
+import React from 'react';
+import DisplayEntry from './DisplayEntry.jsx';
 
 class Display extends React.Component{
   constructor(props) {
