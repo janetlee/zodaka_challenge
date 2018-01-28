@@ -1,6 +1,7 @@
 # Dependency data
 /node_modules
 .env
+./react-client/dist/bundle.js
 
 # Planning document
 planningdoc.txt

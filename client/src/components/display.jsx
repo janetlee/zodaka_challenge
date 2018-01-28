@@ -7,16 +7,17 @@ class Display extends React.Component{
   }
 
   render() {
-      return (
-        <div>
-          <div className="tweet-header"> TWEETS MENTIONING: {this.props.searchTerm}
-          </div>
-          <div className="tweet-list">
-            {this.props.tweets.map(tweet =>
-              <DisplayEntry tweet={tweet.text} key={tweet.id} />
-            )}
-          </div>
+    const { searchTerm, tweets } = this.props;
+    return (
+      <div>
+        <div className="tweet-header"> TWEETS MENTIONING: {searchTerm}
         </div>
+        <div className="tweet-list">
+          {tweets.map(tweet =>
+            <DisplayEntry tweet={tweet.text} key={tweet.id} />
+          )}
+        </div>
+      </div>
     )
   }
 }

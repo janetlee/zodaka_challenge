@@ -19,10 +19,14 @@ class Search extends React.Component {
     return (
       <div className='header'>
         <div>Enter a search term into the box:</div>
-        <input type="text" value={this.state.searchTermEntry}
-          onChange={event => this.handleSearchTermEntry(event)}>
-        </input>
-        <button onClick={() => this.props.handleSubmit(this.state.searchTermEntry)} >
+        <input
+          type="text"
+          value={this.state.searchTermEntry}
+          onChange={event => this.handleSearchTermEntry(event)}
+        />
+        <button
+          onClick={() => this.props.handleSubmit(this.state.searchTermEntry)}
+        >
           Submit!
         </button>
       </div>
