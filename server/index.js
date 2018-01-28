@@ -11,7 +11,7 @@ app.use(express.static(__dirname + './../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-app.post('/items', async (req, res) => {
+app.post('', async (req, res) => {
    if (!req) {
     res.status(500).send('Bad request');
   } else {

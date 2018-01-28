@@ -19,7 +19,7 @@ class App extends React.Component{
   handleSubmit(searchTerm) {
     (async () => {
       try {
-        const response = await axios.post('/items', { searchTerm });
+        const response = await axios.post('', { searchTerm });
         const data = response.data;
 
         if (data) {
